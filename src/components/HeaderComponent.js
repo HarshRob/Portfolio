@@ -22,7 +22,7 @@ class Header extends Component {
     render() {
         return (
             <>            
-                <Navbar dark sticky="top" expand="md" >
+                <Navbar id="Navbar" dark sticky="top" expand="md" >
                         <NavbarToggler onClick={this.toggleNav} />
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <div className="container">
