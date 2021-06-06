@@ -26,19 +26,19 @@ function Home(props) {
     return (
             
                   <div id="hometext" className="flex-center">
-
+                    
                 
-                        <div className="text">
+                        <div id="home-text" className="text">
                             Hello, I'm <span className="highlight">Robbie Harshman</span>.
                             <br/>
                             I'm just a guy trying <Typed strings={[
-                              'to code.',
                               'to learn.',
+                              'to code.',
                               'to be better.']}
                               typeSpeed={150}
                               backSpeed={50}
                               loop 
-                              onStart = {self => self.cursor.remove()}>
+                              >
                               <span />
                             </Typed>
                         </div>

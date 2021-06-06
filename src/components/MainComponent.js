@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Particles from "react-tsparticles";
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Contact from './ContactComponent';
 import Header from './HeaderComponent';
@@ -35,13 +36,17 @@ class Main extends Component {
                   options={{
                     particles: {
                       color: {
-                        value: "#ffffff",
+                        random: true,
+                        value: ["fff", "#000"],
                       },
                       links: {
-                        color: "#fff",
-                        distance: 65,
+                        color: {
+                          
+                          value: "#000",
+                        },
+                        distance: 100,
                         enable: true,
-                        opacity: 0.5,
+                        opacity: 0.3,
                         
                       },
                       move: {
@@ -54,7 +59,7 @@ class Main extends Component {
                           enable: true,
                           value_area: 800,
                         },
-                        value: 80,
+                        value: 120,
                       },
                       opacity: {
                         value: 0.5,
@@ -64,19 +69,24 @@ class Main extends Component {
                       },
                       size: {
                         random: true,
-                        value: 4,
+                        value: 6,
                       },
+                      detectRetina: true
                     },
                   }}
                 />
                 <Header />
-                <Switch>
-                    <Route path='/home' component={HomePage} />
-                    <Route exact path='/projects' component={Projects} />
-                    <Route exact path='/about' component={About} />
-                    <Route exact path='/contact' component={Contact} />
-                    <Redirect to='/home' />
-                </Switch>
+                <TransitionGroup>
+                    <CSSTransition  classNames="page" timeout={300}>
+                      <Switch>
+                          <Route path='/home' component={HomePage} />
+                          <Route exact path='/projects' component={Projects} />
+                          <Route exact path='/about' component={About} />
+                          <Route exact path='/contact' component={Contact} />
+                          <Redirect to='/home' />
+                      </Switch>
+                    </CSSTransition>
+              </TransitionGroup>
             </>
         );
     }
