@@ -1,7 +1,7 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
-import { Form, FormGroup, Input, Label, Button } from 'reactstrap'
-
+import { Form, FormGroup, Input, Label, Button, Breadcrumb, BreadcrumbItem } from 'reactstrap'
+import { Link } from 'react-router-dom';
 
 
 export default function Contact() {
@@ -29,12 +29,22 @@ export default function Contact() {
   return (
    
         <>
-          <div className="contact-form">
-            <h1 className="text">Contact</h1>
-            <p className="text">
-              Feel free to reach out through the form or the links below.
-            </p>
-          </div>
+          <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <Breadcrumb>
+                            <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                            <BreadcrumbItem active>Contact</BreadcrumbItem>
+                        </Breadcrumb>
+                        <h2 className="flex-center text">Contact</h2>
+                        <p className="flex-center text">
+                          Feel free to reach out through the form or the links below.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+          
           <Form className="contact-form" onSubmit={sendEmail}>
               <FormGroup>
                 <Label>Name</Label>
@@ -52,10 +62,9 @@ export default function Contact() {
           </Form>
           
               <div className="flex-center m-4 ">
-                <a className="btn btn-social-icon btn-instagram p-4" href="http://instagram.com/"><i className=" p-2 fa fa-instagram " /></a>{' '}
-                <a className="btn btn-social-icon btn-facebook p-4" href="http://www.facebook.com/"><i className="p-2 fa fa-facebook" /></a>{' '}
-                <a className="btn btn-social-icon btn-twitter p-4" href="http://twitter.com/"><i className="p-2 fa fa-twitter" /></a>{' '}
-                <a className="btn btn-social-icon btn-google p-4" href="http://youtube.com/"><i className="p-2 fa fa-youtube" /></a> 
+                <a className="btn btn-social-icon btn-github p-4" href="https://github.com/HarshRob/" target="_blank" rel="noreferrer noopener"><i className=" p-2 fa fa-github " /></a>{' '}
+                <a className="btn btn-social-icon btn-facebook p-4" href="https://www.facebook.com/robbie.harshman/" target="_blank" rel="noreferrer noopener"><i className="p-2 fa fa-facebook" /></a>{' '}
+                <a className="btn btn-social-icon btn-linkedin p-4" href="https://www.linkedin.com/in/robbie-harshman-15a663b3/" target="_blank" rel="noreferrer noopener"><i className="p-2 fa fa-linkedin" /></a>{' '}
               </div>
 
         </>

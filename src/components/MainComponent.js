@@ -9,6 +9,7 @@ import Home from './HomeComponent';
 import About from './AboutComponent';
 import Projects from './ProjectsComponent';
 
+
 import { PROJECTS } from '../shared/projects';
 
 
@@ -23,11 +24,11 @@ class Main extends Component {
 
     render() {
 
-        const HomePage = () => {
-            return (
-                <Home project={this.state.projects} />
-            );
-        };
+      const HomePage = () => {
+          return (
+              <Home />
+          );
+      };
 
         return (
             <>
@@ -37,12 +38,12 @@ class Main extends Component {
                     particles: {
                       color: {
                         random: true,
-                        value: ["fff", "#000"],
+                        value: ["#FDFD96"],
                       },
                       links: {
                         color: {
                           
-                          value: "#000",
+                          value: "#FDFD01",
                         },
                         distance: 100,
                         enable: true,
@@ -80,7 +81,7 @@ class Main extends Component {
                     <CSSTransition  classNames="page" timeout={300}>
                       <Switch>
                           <Route path='/home' component={HomePage} />
-                          <Route exact path='/projects' component={Projects} />
+                          <Route exact path='/projects' render={() => <Projects projects={this.state.projects} />} />
                           <Route exact path='/about' component={About} />
                           <Route exact path='/contact' component={Contact} />
                           <Redirect to='/home' />
